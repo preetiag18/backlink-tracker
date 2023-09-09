@@ -1,0 +1,7 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Jost", sans-serif;
+  background: linear-gradient(white, var(--gray-pale));
+}
