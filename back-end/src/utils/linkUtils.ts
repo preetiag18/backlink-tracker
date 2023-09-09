@@ -8,7 +8,7 @@ export const getLinkStatus = async (
 ): Promise<string> => {
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: "new",
       executablePath: '/usr/bin/google-chrome',
       args: [
           "--no-sandbox",
