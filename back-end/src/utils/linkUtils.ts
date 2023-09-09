@@ -7,7 +7,14 @@ export const getLinkStatus = async (
   anchorText: string,
 ): Promise<string> => {
   try {
-    const browser = await puppeteer.launch({headless: "new"});
+    const browser = await puppeteer.launch({
+      headless: true,
+      executablePath: '/usr/bin/google-chrome',
+      args: [
+          "--no-sandbox",
+          "--disable-gpu",
+      ]
+    });
     const page = await browser.newPage();
     await page.goto(linkUrl, {waitUntil: 'domcontentloaded'})
     await new Promise(r => setTimeout(r, 3000));
