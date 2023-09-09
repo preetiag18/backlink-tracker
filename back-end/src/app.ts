@@ -9,6 +9,7 @@ import { backLinkRouter } from "./router/backlink";
 import { unknownEndpoint } from "./middleware/unknownEndpoint";
 import { errorHandler } from "./middleware/errorHandler";
 import { updateLinkStatus } from "./scheduleTask/scheduleTask";
+import { healthRouter } from "./router/health";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use(morgan(":method :url :status :response-time ms "));
 app.use(cookieParser());
 app.use("/api/", backLinkRouter);
+app.use("/healthz", healthRouter);
 
 app.use(errorHandler);
 app.use(unknownEndpoint);
